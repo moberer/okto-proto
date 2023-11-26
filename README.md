@@ -17,25 +17,41 @@ just setup
 
 ## Building
 
-To build the gdextension for the Linux Desktop, you can use
+To build the gdextension (aka the Rust plugin) for all platforms, you can use *any one* of the following commands
 
 ```bash
+just     # automatically executes just all
+just a   # alias for all
 just all
 ```
 
-or just
-
-```bash
-just
-```
-
 Note that the first compilation takes a lot longer than all following ones.
-You can also use `just linux` if you don't want / need the Android binaries and want faster builds.
-
 You can then open the project in the Godot Editor and it should "just work" (TM).
 
+The following sections describe how to build / check certain things faster and are not necessary to try this demo out.
 
-## Preparing to export for Android
+### Building just for ...
+
+You can also use 
+```bash
+just linux
+just android
+``` 
+if you just want to build the binaries for one of the platforms.
+This (of course) makes the build faster.
+
+### Just checking ...
+
+If you are quickly iterating through the Rust code and just want it to be internally consistent. 
+(Without producing a binary!)
+You can run *any one* of the following commands:
+```bash
+just check
+just c      # alias for check
+```
+
+
+## Preparing to Export for Android
 
 1) Generate a Developer Key
 (Change user / password as you see fit)
@@ -52,13 +68,14 @@ keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystor
   - Set password to "android" (or the one you used)
 
 3) Set up Android SDK in Godot
-   - Stay in the same screen as above
-   - Set the "Android SDK Path" to "/home/YOURUSERNAMEHERE/Android/Sdk"
-   - Ensure you have a fitting SDK installed in Android Studio
+  - Stay in the same screen as above
+  - Set the "Android SDK Path" to "/home/YOURUSERNAMEHERE/Android/Sdk"
+  - Ensure you have a fitting SDK installed in Android Studio
 
-4) Export the Android apk
-   - This is the only step you'll have to repeat in the future.
-   - Top Bar -> Project -> Export
-   - Select Android in the left bar
-   - Press the "Export Project" button in the bottom bar
-   - Select where to put the apk
+4) Continue with "Export for Android"
+
+## Export for Android
+ - Top Bar -> Project -> Export
+ - Select Android in the left bar
+ - Press the "Export Project" button in the bottom bar
+ - Select where to put the apk
