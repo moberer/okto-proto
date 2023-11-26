@@ -1,8 +1,6 @@
-# okto-proto
-a simple godot rust project
+# Oktobat Prototype
 
-
-
+A simple Godot + Rust prototype for Linux and Android.
 
 ## Dependencies
 
